@@ -9,14 +9,12 @@ import sys
 
 class Page (object):
 	"""Class for a wikipedia page"""
-	Title = None
-	Links = []
-	parent = None #determines which page this page comes from
-	errorFree = True
 
 	def __init__ (self, title, parent = None):
 		self.Title = title
-		self.parent = parent
+		self.Links = []
+		self.errorFree = True
+		self.parent = parent	#determines which page this page comes from
 	
 	def makepage(self):
 		"""Initialises the page list"""
@@ -34,7 +32,7 @@ class Page (object):
 
 
 def findShortestPath (startPage, endPage):
-	"""returns a page object for endPage with parents defined"""
+	"""returns a Page object for endPage with parents defined"""
 	visited = {} #dictionary to store visited pages
 	searchable = [startPage]  #used as a queue of links
 
